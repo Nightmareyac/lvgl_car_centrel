@@ -1,0 +1,26 @@
+#include "images.h"
+
+const ext_img_desc_t images[22] = {
+    { "backwardimg", &img_backwardimg },
+    { "forwardimg", &img_forwardimg },
+    { "pauseimg", &img_pauseimg },
+    { "fullimg", &img_fullimg },
+    { "cdimg", &img_cdimg },
+    { "cloudmusiceIcon", &img_cloudmusice_icon },
+    { "fullexit", &img_fullexit },
+    { "playelist", &img_playelist },
+    { "playimg", &img_playimg },
+    { "wealth", &img_wealth },
+    { "car", &img_car },
+    { "sound", &img_sound },
+    { "flash1", &img_flash1 },
+    { "flash2", &img_flash2 },
+    { "flash3", &img_flash3 },
+    { "safebelt", &img_safebelt },
+    { "lock", &img_lock },
+    { "unlock", &img_unlock },
+    { "flash", &img_flash },
+    { "ai", &img_ai },
+    { "brightness", &img_brightness },
+    { "air", &img_air },
+};
