@@ -29,6 +29,7 @@ extern const lv_img_dsc_t img_flash;
 extern const lv_img_dsc_t img_ai;
 extern const lv_img_dsc_t img_brightness;
 extern const lv_img_dsc_t img_air;
+extern const lv_img_dsc_t img_telsa;
 
 #ifndef EXT_IMG_DESC_T
 #define EXT_IMG_DESC_T
@@ -38,7 +39,7 @@ typedef struct _ext_img_desc_t {
 } ext_img_desc_t;
 #endif
 
-extern const ext_img_desc_t images[22];
+extern const ext_img_desc_t images[23];
 
 #ifdef __cplusplus
 }

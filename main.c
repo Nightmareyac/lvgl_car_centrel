@@ -5,18 +5,11 @@
 #include <stdio.h>
 #include <sys/time.h>
 #include "ui/ui.h"
-#include "ui/actions.h"
-#include "ui/action1.h"
-#include "bemfa_client.h"
+#include "ui/events_init.h"
 
 #define DISP_BUF_SIZE (1024 * 60)
 
-void init_bemfa_sync(void) {
-    // 创建一个每 100ms 执行一次的 LVGL 定时器，用来同步 UI
-    lv_timer_create(bemfa_ui_update_cb, 100, NULL);
-}
-
-/* 1. 全局系统时间获取函数 */
+/* 全局系统时间获取函数（供 LVGL 内部使用） */
 uint32_t custom_tick_get(void)
 {
     static uint64_t start_ms = 0;
@@ -66,11 +59,11 @@ int main(void)
 {
 
     lvgl_system_init();
-    init_bemfa_sync();
 
     ui_init();
 
-    player_events_init();
+    /* 初始化所有 UI 业务模块（车辆控制、音乐、天气、系统设置） */
+    ui_events_init();
 
     /* 主循环 */
     while(1) {

@@ -1,6 +1,6 @@
 #include "images.h"
 
-const ext_img_desc_t images[22] = {
+const ext_img_desc_t images[23] = {
     { "backwardimg", &img_backwardimg },
     { "forwardimg", &img_forwardimg },
     { "pauseimg", &img_pauseimg },
@@ -23,4 +23,5 @@ const ext_img_desc_t images[22] = {
     { "ai", &img_ai },
     { "brightness", &img_brightness },
     { "air", &img_air },
+    { "telsa", &img_telsa },
 };

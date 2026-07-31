@@ -18,15 +18,12 @@ enum ScreensEnum {
 typedef struct _objects_t {
     lv_obj_t *main;
     lv_obj_t *carmodel;
-    lv_obj_t *ai_searchbox;
-    lv_obj_t *ai_send_btn;
-    lv_obj_t *ai_icon;
-    lv_obj_t *ai_userrequest;
     lv_obj_t *l3_2;
     lv_obj_t *l3_3;
     lv_obj_t *l3_1;
     lv_obj_t *l3_4;
     lv_obj_t *tem_roller;
+    lv_obj_t *meter;
     lv_obj_t *airconditionr_call_btn;
     lv_obj_t *flash_btn;
     lv_obj_t *lock_btn;
@@ -50,6 +47,12 @@ typedef struct _objects_t {
     lv_obj_t *calander_btn;
     lv_obj_t *year_label;
     lv_obj_t *wealth_btn;
+    lv_obj_t *ai_chatbox;
+    lv_obj_t *ai_answer;
+    lv_obj_t *ai_searchbox;
+    lv_obj_t *ai_send_btn;
+    lv_obj_t *ai_chatbox_shutbtn;
+    lv_obj_t *ai_userrequest;
     lv_obj_t *wealth_panel;
     lv_obj_t *l3;
     lv_obj_t *day2label;
@@ -74,8 +77,6 @@ typedef struct _objects_t {
     lv_obj_t *songlist_btn;
     lv_obj_t *cloude_icon;
     lv_obj_t *songlist;
-    lv_obj_t *ai_chatbox;
-    lv_obj_t *ai_answer;
     lv_obj_t *sound_btn;
     lv_obj_t *sound_bar;
     lv_obj_t *brightness_btn;
@@ -85,6 +86,13 @@ typedef struct _objects_t {
 } objects_t;
 
 extern objects_t objects;
+
+typedef struct {
+    lv_meter_scale_t *scale;
+    lv_meter_indicator_t *indicator;
+} screen_main_state_t;
+
+extern screen_main_state_t screen_main_state;
 
 void create_screen_main();
 void tick_screen_main();

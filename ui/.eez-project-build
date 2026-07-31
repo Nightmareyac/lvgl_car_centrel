@@ -32,6 +32,7 @@
     "ui_image_playimg.c",
     "ui_image_safebelt.c",
     "ui_image_sound.c",
+    "ui_image_telsa.c",
     "ui_image_unlock.c",
     "ui_image_wealth.c",
     "vars.h"
