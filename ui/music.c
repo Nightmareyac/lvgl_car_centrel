@@ -11,6 +11,7 @@
 #include <time.h>
 #define FIFO_PATH "/tmp/mplayer_fifo"
 
+// 歌曲索引
 Song song_list[] = {
     {"Melody", "Zee Tao", "/userdata/music/melody.mp3", "S:/userdata/music/melody.bmp", "S:/userdata/music/melody1.bmp",
      210},
@@ -120,12 +121,14 @@ bool music_is_playing(void)
 int music_get_progress(void)
 {
     Song * cur = music_get_current_song();
-    if(!cur || cur->duration <= 0 || mplayer_pid <= 0) return 0;
+    if(!cur || cur->duration <= 0 || mplayer_pid <= 0) 
+        return 0;
     time_t elapsed = pause_elapsed + (is_playing ? (time(NULL) - play_start_time) : 0);
     int percent    = (int)(elapsed * 100 / cur->duration);
     return percent > 100 ? 100 : percent;
 }
 
+//播放状态切换
 void music_play_toggle(void)
 {
     Song * cur = music_get_current_song();

@@ -325,6 +325,34 @@ void remove_style_frunk(lv_obj_t *obj) {
 };
 
 //
+// Style: greyfont
+//
+
+void init_style_greyfont_MAIN_DEFAULT(lv_style_t *style) {
+    lv_style_set_text_color(style, lv_color_hex(0x474747));
+};
+
+lv_style_t *get_style_greyfont_MAIN_DEFAULT() {
+    static lv_style_t *style;
+    if (!style) {
+        style = (lv_style_t *)lv_mem_alloc(sizeof(lv_style_t));
+        lv_style_init(style);
+        init_style_greyfont_MAIN_DEFAULT(style);
+    }
+    return style;
+};
+
+void add_style_greyfont(lv_obj_t *obj) {
+    (void)obj;
+    lv_obj_add_style(obj, get_style_greyfont_MAIN_DEFAULT(), LV_PART_MAIN | LV_STATE_DEFAULT);
+};
+
+void remove_style_greyfont(lv_obj_t *obj) {
+    (void)obj;
+    lv_obj_remove_style(obj, get_style_greyfont_MAIN_DEFAULT(), LV_PART_MAIN | LV_STATE_DEFAULT);
+};
+
+//
 //
 //
 
@@ -335,6 +363,7 @@ void add_style(lv_obj_t *obj, int32_t styleIndex) {
         add_style_checkstyle,
         add_style_darkslider,
         add_style_frunk,
+        add_style_greyfont,
     };
     add_style_funcs[styleIndex](obj);
 }
@@ -346,6 +375,7 @@ void remove_style(lv_obj_t *obj, int32_t styleIndex) {
         remove_style_checkstyle,
         remove_style_darkslider,
         remove_style_frunk,
+        remove_style_greyfont,
     };
     remove_style_funcs[styleIndex](obj);
 }

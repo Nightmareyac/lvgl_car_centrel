@@ -12,16 +12,19 @@ extern "C" {
 enum ScreensEnum {
     _SCREEN_ID_FIRST = 1,
     SCREEN_ID_MAIN = 1,
-    _SCREEN_ID_LAST = 1
+    SCREEN_ID_MAP = 2,
+    _SCREEN_ID_LAST = 2
 };
 
 typedef struct _objects_t {
     lv_obj_t *main;
+    lv_obj_t *map;
     lv_obj_t *carmodel;
     lv_obj_t *l3_2;
     lv_obj_t *l3_3;
     lv_obj_t *l3_1;
     lv_obj_t *l3_4;
+    lv_obj_t *l3_5;
     lv_obj_t *tem_roller;
     lv_obj_t *meter;
     lv_obj_t *airconditionr_call_btn;
@@ -31,10 +34,11 @@ typedef struct _objects_t {
     lv_obj_t *obj0;
     lv_obj_t *funk_btn;
     lv_obj_t *frunk_label;
+    lv_obj_t *music_all_panel;
     lv_obj_t *flash1;
+    lv_obj_t *flash2;
     lv_obj_t *flash3;
     lv_obj_t *flash4;
-    lv_obj_t *flash2;
     lv_obj_t *player_widget_panel;
     lv_obj_t *song_name;
     lv_obj_t *song_panel;
@@ -42,6 +46,17 @@ typedef struct _objects_t {
     lv_obj_t *pause_btn;
     lv_obj_t *forward_btn;
     lv_obj_t *full_btn;
+    lv_obj_t *player_main_panel;
+    lv_obj_t *songer;
+    lv_obj_t *progress_bar;
+    lv_obj_t *song_panel_main;
+    lv_obj_t *backword_main_btn;
+    lv_obj_t *forward_main_btn;
+    lv_obj_t *pause_main_btn;
+    lv_obj_t *song_tittle;
+    lv_obj_t *full_btn_1;
+    lv_obj_t *songlist_btn;
+    lv_obj_t *cloude_icon;
     lv_obj_t *time_wealth_panel;
     lv_obj_t *time_label;
     lv_obj_t *calander_btn;
@@ -65,24 +80,21 @@ typedef struct _objects_t {
     lv_obj_t *day2icon;
     lv_obj_t *day1icon;
     lv_obj_t *calander;
-    lv_obj_t *player_main_panel;
-    lv_obj_t *songer;
-    lv_obj_t *progress_bar;
-    lv_obj_t *song_panel_main;
-    lv_obj_t *backword_main_btn;
-    lv_obj_t *forward_main_btn;
-    lv_obj_t *pause_main_btn;
-    lv_obj_t *song_tittle;
-    lv_obj_t *full_btn_1;
-    lv_obj_t *songlist_btn;
-    lv_obj_t *cloude_icon;
     lv_obj_t *songlist;
     lv_obj_t *sound_btn;
     lv_obj_t *sound_bar;
     lv_obj_t *brightness_btn;
     lv_obj_t *brightness_bar;
     lv_obj_t *ai_chatkeyboard;
-    lv_obj_t *l3_5;
+    lv_obj_t *mapin_btn;
+    lv_obj_t *map_contain;
+    lv_obj_t *map_img;
+    lv_obj_t *obj1;
+    lv_obj_t *obj2;
+    lv_obj_t *obj3;
+    lv_obj_t *obj4;
+    lv_obj_t *obj5;
+    lv_obj_t *exit_map_btn;
 } objects_t;
 
 extern objects_t objects;
@@ -96,6 +108,9 @@ extern screen_main_state_t screen_main_state;
 
 void create_screen_main();
 void tick_screen_main();
+
+void create_screen_map();
+void tick_screen_map();
 
 void tick_screen_by_id(enum ScreensEnum screenId);
 void tick_screen(int screen_index);

@@ -30,6 +30,9 @@ extern const lv_img_dsc_t img_ai;
 extern const lv_img_dsc_t img_brightness;
 extern const lv_img_dsc_t img_air;
 extern const lv_img_dsc_t img_telsa;
+extern const lv_img_dsc_t img_carstate;
+extern const lv_img_dsc_t img_carmap;
+extern const lv_img_dsc_t img_exitmap;
 
 #ifndef EXT_IMG_DESC_T
 #define EXT_IMG_DESC_T
@@ -39,7 +42,7 @@ typedef struct _ext_img_desc_t {
 } ext_img_desc_t;
 #endif
 
-extern const ext_img_desc_t images[23];
+extern const ext_img_desc_t images[26];
 
 #ifdef __cplusplus
 }

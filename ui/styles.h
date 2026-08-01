@@ -38,6 +38,11 @@ lv_style_t *get_style_frunk_MAIN_DEFAULT();
 void add_style_frunk(lv_obj_t *obj);
 void remove_style_frunk(lv_obj_t *obj);
 
+// Style: greyfont
+lv_style_t *get_style_greyfont_MAIN_DEFAULT();
+void add_style_greyfont(lv_obj_t *obj);
+void remove_style_greyfont(lv_obj_t *obj);
+
 #ifdef __cplusplus
 }
 #endif

@@ -61,6 +61,10 @@ void update_weather_ui(const WealthInfo * info)
     }
 }
 
+
+//CurlBuf 用于保存天气接口返回的数据。
+//HTTP 响应可能分多次到达curl 每收到一段数据，就调用一次 write_cb()
+//回调函数通过 realloc() 扩大缓冲区，并用 memcpy() 把新数据追加进去。等请求完成后，fetch_weather_date() 再把完整 JSON 解析成天气结构体，最后交给 UI 模块显示。
 typedef struct
 {
     char * memory;
