@@ -3,7 +3,15 @@
 本项目基于 LVGL，运行在 RK1808 Linux framebuffer 环境，主要实现 AI 对话、
 音乐播放和车辆远程控制等功能。
 
-## 1. AI 对话逻辑
+## 获取源码
+
+```bash
+git clone https://github.com/Nightmareyac/lvgl_car_centrel.git
+cd lvgl_car_centrel
+git submodule update --init --recursive
+```
+
+## 1. AI 对话逻
 
 核心文件：`ui/aichat.c`
 

@@ -1,16 +1,3 @@
-/**
- * @file    player_ui.c
- * @brief   音乐播放器 UI 模块实现
- * @details 封装了音乐播放器的全部 UI 交互逻辑：
- *          - 播放/暂停/切歌按钮回调
- *          - 歌曲列表（roller）的构建与选择
- *          - 进度条定时更新
- *          - 全屏播放面板的展开/折叠动画
- * @note    1. 底层音频操作委托给 music.c（mplayer 从模式通过 FIFO 控制）。
- *          2. 进度条定时器仅创建一次（修复原 actions.c 中重复创建的 Bug）。
- *          3. 保留了 EEZ Studio 生成的原始对象名（如 backword_btn、upadate_musicUI）。
- */
-
 #include "player_ui.h"
 #include "screens.h"
 #include "music.h"

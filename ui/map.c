@@ -29,6 +29,8 @@
 #define LVGL_BMP_PATH "S:/userdata/ip_map.bmp"
 
 static pthread_t g_ip_map_thread;
+
+// 将 Base64 字符转换为对应的 6 位数值。
 static int base64_value(char c)
 {
     if(c >= 'A' && c <= 'Z') return c - 'A';
@@ -39,6 +41,7 @@ static int base64_value(char c)
     return -1;
 }
 
+// 解码 API 返回的 Base64 字符串并生成二进制数据。
 static unsigned char * decode_base64(const char * src, size_t * out_size)
 {
     size_t src_len      = strlen(src);
@@ -72,6 +75,7 @@ static unsigned char * decode_base64(const char * src, size_t * out_size)
     return out;
 }
 
+// 解析地图 API 的 JSON 响应并将 Base64 图片保存为 PNG。
 static int decode_api_response_to_png(const char * json_path, const char * png_path)
 {
     FILE * f = fopen(json_path, "rb");
@@ -146,7 +150,7 @@ static int decode_api_response_to_png(const char * json_path, const char * png_p
     return result;
 }
 
-/* Convert the API's PNG response to an LVGL-compatible 24-bit BMP. */
+// 将 PNG 图片解码后转换为 LVGL 可读取的 24 位 BMP。
 static int convert_image_to_bmp(const char * image_path, const char * bmp_path)
 {
     FILE * image = fopen(image_path, "rb");
@@ -227,11 +231,13 @@ static int convert_image_to_bmp(const char * image_path, const char * bmp_path)
     return 0;
 }
 
+// 将 curl 接收到的数据直接写入指定文件。
 static size_t write_file_cb(void * ptr, size_t size, size_t nmemb, void * stream)
 {
     return fwrite(ptr, size, nmemb, (FILE *)stream);
 }
 
+// 在 LVGL 线程中设置地图图片并调整控件层级。
 static void update_map_ui_cb(void * param)
 {
     char * path = (char *)param;
@@ -253,6 +259,7 @@ static void update_map_ui_cb(void * param)
     free(path);
 }
 
+// 在线程中下载地图 JSON，并完成图片解析和格式转换。
 static void * ip_map_download_thread(void * arg)
 {
     (void)arg;
@@ -312,6 +319,7 @@ static void * ip_map_download_thread(void * arg)
     return NULL;
 }
 
+// 处理地图退出按钮点击事件并返回主页面。
 static void map_exit_btn_click(lv_event_t * e)
 {
     lv_event_code_t code = lv_event_get_code(e);
@@ -322,6 +330,7 @@ static void map_exit_btn_click(lv_event_t * e)
     }
 }
 
+// 启动地图下载线程并绑定地图退出按钮事件。
 void load_ip_map_async(void)
 {
     pthread_create(&g_ip_map_thread, NULL, ip_map_download_thread, NULL);
